@@ -3,6 +3,9 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/ElMeanusTask/app/src/main/res/drawable/splash_background.xml" value="0.2546875" />
+        <entry key="..\:/ElMeanusTask/app/src/main/res/layout/activity_main.xml" value="0.12447916666666667" />
+        <entry key="..\:/ElMeanusTask/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.2546875" />
         <entry key="..\:/Work/News/app/src/main/res/layout/activity_main.xml" value="0.21666666666666667" />
       </map>
     </option>
