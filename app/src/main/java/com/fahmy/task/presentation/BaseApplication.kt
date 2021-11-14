@@ -7,7 +7,7 @@ import dagger.hilt.android.HiltAndroidApp
 @HiltAndroidApp
 class BaseApplication : Application() {
 
-    private val isDark = mutableStateOf(false)
+    private val isDark = mutableStateOf(true)
 
     fun toggleTheme() {
         this.isDark.value = !this.isDark.value

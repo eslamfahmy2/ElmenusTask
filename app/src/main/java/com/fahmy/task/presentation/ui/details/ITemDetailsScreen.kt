@@ -19,6 +19,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.layout.Layout
+import androidx.compose.ui.layout.MeasurePolicy
 import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
@@ -36,7 +38,6 @@ fun ITemDetailsScreen(
     item: Item,
     navHostController: NavHostController
 ) {
-
 
     val scrollState = rememberScrollState()
     val configuration = LocalConfiguration.current
@@ -59,9 +60,10 @@ fun ITemDetailsScreen(
                 .fillMaxWidth()
                 .height(400.dp)
                 .graphicsLayer {
-                    alpha = min(1f, 1 - (scrollState.value / 600f))
-                    translationY = -scrollState.value * 1f
+                    alpha = min(1f, 1 - (scrollState.value / 1000f))
+                    translationY = -scrollState.value * 0.8f
                 }
+
         )
 
 
@@ -75,14 +77,26 @@ fun ITemDetailsScreen(
                     text = it,
                     modifier = Modifier
                         .padding(top = 400.dp)
-                        .padding(12.dp),
+                        .fillMaxSize()
+                        .background(MaterialTheme.colors.surface)
+                        .padding(8.dp)
+                    ,
                     style = TextStyle(
                         color = MaterialTheme.colors.onSurface,
-                        fontSize = 18.sp,
+
                     )
                 )
             }
-            Box(modifier = Modifier.height(screenHeight.dp))
+            val policy = MeasurePolicy { _, constraints ->
+                layout(constraints.maxWidth, constraints.maxHeight) {}
+            }
+            val modifier  = Modifier
+                .height(screenHeight.dp)
+                .background(MaterialTheme.colors.surface)
+
+            Layout({}, measurePolicy = policy, modifier = modifier)
+
+
         }
 
         Row(
@@ -107,7 +121,6 @@ fun ITemDetailsScreen(
                     modifier = Modifier.padding(12.dp),
                     style = TextStyle(
                         color = MaterialTheme.colors.onSurface,
-                        fontSize = 22.sp,
                         fontWeight = FontWeight.Bold
                     )
                 )

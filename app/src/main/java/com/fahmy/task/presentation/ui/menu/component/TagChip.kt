@@ -2,8 +2,8 @@ package com.fahmy.task.presentation.ui.menu.component
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.padding
+import androidx.compose.material.Card
 import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Surface
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -17,15 +17,16 @@ fun TagChip(
     tag: Tag,
     action: (Tag) -> Unit,
 ) {
-    Surface(
+    Card(
         modifier = Modifier
-            .padding(start = 8.dp)
+            .padding(8.dp)
             .clickable {
                 action(tag)
             },
-        elevation = 1.dp,
+        elevation = 5.dp,
         shape = MaterialTheme.shapes.small,
-        color = MaterialTheme.colors.primary,
+        backgroundColor = MaterialTheme.colors.primary
+
     ) {
 
         Text(

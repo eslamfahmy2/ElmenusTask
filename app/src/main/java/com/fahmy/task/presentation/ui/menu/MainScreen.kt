@@ -1,8 +1,10 @@
 package com.fahmy.task.presentation.ui.menu
 
+import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.material.ExperimentalMaterialApi
 import androidx.compose.material.Scaffold
 import androidx.compose.material.rememberScaffoldState
@@ -23,6 +25,7 @@ import kotlinx.coroutines.launch
 import java.net.URLEncoder
 import java.nio.charset.StandardCharsets
 
+@ExperimentalFoundationApi
 @ExperimentalMaterialApi
 @Composable
 fun MainScreen(
@@ -33,6 +36,7 @@ fun MainScreen(
 
     val coroutineScope = rememberCoroutineScope()
     val scaffoldState = rememberScaffoldState()
+    val listState = rememberLazyListState()
     val tags = menuViewModel.tags.collectAsState().value.collectAsLazyPagingItems()
     val items = menuViewModel.items.collectAsState().value
 
@@ -57,13 +61,14 @@ fun MainScreen(
     ) {
 
 
-        Column {
-
-            DataScreen(tags = tags, action = {
-                coroutineScope.launch {
-                    menuViewModel.userIntent.send(MenuIntent.LoadItemsByTagName(it))
-                }
-            })
+        LazyColumn() {
+            stickyHeader {
+                DataScreen(tags = tags, action = {
+                    coroutineScope.launch {
+                        menuViewModel.userIntent.send(MenuIntent.LoadItemsByTagName(it))
+                    }
+                })
+            }
 
             when (items) {
                 is DataState.Error -> {
@@ -77,24 +82,26 @@ fun MainScreen(
                     }
                 }
                 is DataState.Loading -> {
-                    LoadingColumnScreen(count = 5, height = 200.dp)
+                    item {
+                        LoadingColumnScreen(count = 5, height = 200.dp)
+                    }
+
                 }
                 is DataState.Success -> {
                     items.data?.let {
-                        LazyColumn() {
-                            items(it) { item ->
-                                ITemCard(item = item, action = {
-                                    val encodedUrl = URLEncoder.encode(
-                                        it.photoUrl,
-                                        StandardCharsets.UTF_8.toString()
-                                    )
-                                    val encodedItem = it.copy(photoUrl = encodedUrl)
-                                    Gson().toJson(encodedItem)?.let { json ->
-                                        navHostController.navigate("details/${json}")
-                                    }
-                                })
-                            }
+                        items(it) { item ->
+                            ITemCard(item = item, action = {
+                                val encodedUrl = URLEncoder.encode(
+                                    it.photoUrl,
+                                    StandardCharsets.UTF_8.toString()
+                                )
+                                val encodedItem = it.copy(photoUrl = encodedUrl)
+                                Gson().toJson(encodedItem)?.let { json ->
+                                    navHostController.navigate("details/${json}")
+                                }
+                            })
                         }
+
                     }
 
                 }

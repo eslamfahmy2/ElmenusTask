@@ -1,8 +1,11 @@
 package com.fahmy.task.presentation.ui.menu.component
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.material.ExperimentalMaterialApi
+import androidx.compose.material.MaterialTheme
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.paging.LoadState
 import androidx.paging.compose.LazyPagingItems
@@ -24,7 +27,7 @@ fun DataScreen(
         )
     } else {
 
-        LazyRow() {
+        LazyRow(Modifier.background(MaterialTheme.colors.surface)) {
             items(tags) {
                 it?.let {
                     TagChip(tag = it, action = { action(it) })
