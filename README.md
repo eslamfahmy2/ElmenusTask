@@ -19,9 +19,9 @@ Displaying list of sticky pegged tags, and items list with detailed screen
 # Techicality 
 
 The project uses Clean architecture as structure pattern consisting of the layers : 
-* #Data layer contains data source logic-networking via Retrofit-, Data Transfer Objects, and repositories implementation 
-* #Domina layer contains mainly project Bussiness rules, and consist of Domain Named Objects, Repositories, Mappers, and application use cases 
-* #Presentation layer contains UI related and dependent Apis, it contains The, Components, Navigation, ViewModels, UI State, UI Intent, and framework Apis-Activities..etc
+* # Data layer contains data source logic-networking via Retrofit-, Data Transfer Objects, and repositories implementation 
+* # Domina layer contains mainly project Bussiness rules, and consist of Domain Named Objects, Repositories, Mappers, and application use cases 
+* # Presentation layer contains UI related and dependent Apis, it contains The, Components, Navigation, ViewModels, UI State, UI Intent, and framework Apis-Activities..etc
 
 # Apis 
 
