@@ -1,6 +1,6 @@
 ## Elmenus Task 
 
-Displaying list of sticky pegged tags, and items list with detailed screen
+Displaying list of sticky pegged tags, and items list with detailed screen with dark and light mode 
 
 # Screenshots 
 
