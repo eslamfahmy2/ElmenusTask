@@ -25,6 +25,8 @@ The project uses Clean architecture as structure pattern consisting of the layer
 
 * Classes are behaving through MVI pattern, with Repository, Singleton, Factory design pattern
 
+![arc](https://user-images.githubusercontent.com/74387512/141706451-771f50c2-9e87-424b-9f16-c757c4fff30d.PNG)
+
 
 # Dependencies 
 
