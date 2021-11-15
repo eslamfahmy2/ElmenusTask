@@ -41,4 +41,7 @@ The project uses Clean architecture as structure pattern consisting of the layer
 * StateFlow : a state-holder observable flow that emits the current and new state updates to its collectors.
 * ConstraintLayout :  help place composables relative to others on the screen, and is an alternative to using multiple nested
 
+# Talk 
+Parallax effect is done using custom Jetpack compose layouts by minabulation the transaction and alpha of composable using Column Scroll state. But current shared element not Supported by Jetpack Compose yet. and that my next up coming challenge 😊
+
  
