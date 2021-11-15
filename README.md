@@ -23,8 +23,10 @@ The project uses Clean architecture as structure pattern consisting of the layer
 *  Domina layer contains mainly project Bussiness rules, and consist of Domain Named Objects, Repositories, Mappers, and application use cases 
 *  Presentation layer contains UI related and dependent Apis, it contains The, Components, Navigation, ViewModels, UI State, UI Intent, and framework Apis-Activities..etc
 
-# Apis 
+* Classes are behaving through MVI pattern, with Repository, Singleton, Factory design pattern
 
+
+# Dependencies 
 
 
 * Retorift : type-safe REST client for Android and Java which aims to make it easier to consume RESTful web services
@@ -32,10 +34,9 @@ The project uses Clean architecture as structure pattern consisting of the layer
 * Corotines : a concurrency design pattern that you can use on Android to simplify code that executes asynchronously.
 * Hilt : a dependency injection library for Android that reduces the boilerplate of doing manual dependency injection
 * Jetpack Compose : Android’s modern toolkit for building native UI. It simplifies and accelerates UI 
-* Coil : An image loading library for Android backed by Kotlin Coroutines
-* Navigation  Android’s components archtotucre to the interactions that allow users to navigate across, into, and back out from the different pieces of content within app 
+* Coil : an image loading library for Android backed by Kotlin Coroutines
+* Navigation : Android’s components archtotucre to the interactions that allow users to navigate across, into, and back out from the different pieces of content within app 
 * StateFlow : a state-holder observable flow that emits the current and new state updates to its collectors.
-
- 
+* ConstraintLayout :  help place composables relative to others on the screen, and is an alternative to using multiple nested
 
  
