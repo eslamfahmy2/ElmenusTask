@@ -42,6 +42,6 @@ The project uses Clean architecture as structure pattern consisting of the layer
 * ConstraintLayout :  help place composables relative to others on the screen, and is an alternative to using multiple nested
 
 # Talk 
-Parallax effect is done using custom Jetpack compose layouts by minabulation the transaction and alpha of composable using Column Scroll state. But current shared element not Supported by Jetpack Compose yet. and that my next up coming challenge 😊
+Parallax effect is done using custom Jetpack compose layouts by minabulation the transaction and alpha of composable using Column Scroll state. But currently shared element transation is not supported by Jetpack Compose yet. and that my next up coming challenge 😊
 
  
